@@ -510,11 +510,11 @@ const NSInteger TRANSPARENT_NAVBAR_TAG = 78264803;
       viewController.navigationController.navigationBar.shadowImage = [UIImage new];
       UIVisualEffectView *blur = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
       CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-      blur.frame = CGRectMake(0, -1 * statusBarFrame.size.height, viewController.navigationController.navigationBar.frame.size.width, viewController.navigationController.navigationBar.frame.size.height + statusBarFrame.size.height);
+      blur.frame = CGRectMake(0, 0, viewController.navigationController.navigationBar.frame.size.width, viewController.navigationController.navigationBar.frame.size.height + statusBarFrame.size.height);
       blur.userInteractionEnabled = NO;
       blur.tag = BLUR_NAVBAR_TAG;
-      [viewController.navigationController.navigationBar insertSubview:blur atIndex:0];
-      [viewController.navigationController.navigationBar sendSubviewToBack:blur];
+      [viewController.navigationController.navigationBar.subviews[0] insertSubview:blur atIndex:0];
+      [viewController.navigationController.navigationBar.subviews[0] sendSubviewToBack:blur];
     }
     
   } else {
